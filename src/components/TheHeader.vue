@@ -1,32 +1,38 @@
 <template>
   <header>
     <div class="wrapper">
-      <router-link to="/" active-class="active">
+      <router-link to="/">
         <ui-logo />
       </router-link>
 
       <div class="wrapper__link">
         <ul>
-          <div class="wrapper__item">
+          <li class="wrapper__item center">
             <ui-nav-bar-link class="ml-64">
-              <router-link to="/shop" active-class="active">Shop</router-link>
+              <router-link to="/shop">Shop</router-link>
             </ui-nav-bar-link>
-            <span class="border"></span>
-          </div>
+            <span
+              class="border mt-18"
+              v-if="currentRoute === 'shop' || currentRoute === 'about'"
+            ></span>
+          </li>
 
-          <div class="wrapper__item">
+          <li class="wrapper__item center">
             <ui-nav-bar-link class="ml-64">
-              <router-link to="#"> Blog </router-link>
+              <router-link to="/blog"> Blog </router-link>
             </ui-nav-bar-link>
-            <span class="border"></span>
-          </div>
+            <span v-if="currentRoute === 'blog'" class="border mt-18"></span>
+          </li>
 
-          <div class="wrapper__item">
+          <li class="wrapper__item center">
             <ui-nav-bar-link class="ml-64">
-              <router-link to="#">Our Story</router-link>
+              <router-link to="/our-story">Our Story</router-link>
             </ui-nav-bar-link>
-            <span class="border"></span>
-          </div>
+            <span
+              class="border mt-18"
+              v-if="currentRoute === 'our-story'"
+            ></span>
+          </li>
         </ul>
         <span>
           <ui-vertical-line />
@@ -61,11 +67,9 @@ import UiPerson from "./Ui/UiIcon/UiPersonIcon.vue";
 
 const route = useRoute();
 
-const res = computed(() => {
+const currentRoute = computed(() => {
   return route.name;
 });
-
-console.log(res);
 </script>
 
 <style lang="scss" scoped>
@@ -101,7 +105,6 @@ header {
     margin-left: 48px;
   }
   .border {
-    display: none;
     width: 40px;
     border: 2px solid rgba(0, 0, 0, 1);
   }

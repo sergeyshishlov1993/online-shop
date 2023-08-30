@@ -33,6 +33,9 @@
 .mt-48 {
   margin-top: 48px;
 }
+.mt-59 {
+  margin-top: 59px;
+}
 .mt-70 {
   margin-top: 70px;
 }
@@ -44,6 +47,9 @@
 }
 
 /* -------margin-left------- */
+.ml-8 {
+  margin-left: 8px;
+}
 .ml-13 {
   margin-left: 13px;
 }
@@ -74,7 +80,11 @@
 /* ----------center-text--------- */
 
 .center {
-  text-align: center !important;
+  margin: 0 auto !important;
+}
+
+.width-100 {
+  width: 100% !important;
 }
 
 /* ----------color-text--------- */
@@ -86,10 +96,6 @@
 }
 .grey {
   color: rgba(112, 112, 112, 1) !important;
-}
-
-.active {
-  display: block !important;
 }
 
 body {

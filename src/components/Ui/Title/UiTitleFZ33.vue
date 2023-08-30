@@ -11,7 +11,6 @@ h2 {
   font-weight: 500;
   line-height: 43px;
   letter-spacing: 0em;
-  text-align: left;
   color: var(--var-firstScrinText-color);
 }
 </style>

@@ -46,6 +46,7 @@ export const useItemStor = defineStore("itemStor", {
         namePersone: "Scarlet withch",
         date: "6 May, 2020",
         stars: 5,
+        gradeStar: 0,
         reviewText:
           "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. ",
       },

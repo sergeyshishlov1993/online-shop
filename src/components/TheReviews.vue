@@ -1,9 +1,5 @@
 <template>
   <div class="wrapper-reviews">
-    <ui-title-f-z20-f-w400
-      >{{ props.reviews.length }} Reviews for lira
-      earings</ui-title-f-z20-f-w400
-    >
     <div class="wrapper__person-data">
       <ui-title-f-z20-f-w400 class="mt-70">{{
         props.name
@@ -15,7 +11,7 @@
       </span>
     </div>
     <div class="mt-16">
-      <ui-star-white v-for="star in props.stars" :key="star"></ui-star-white>
+      <ui-star-white v-for="star in test" :key="star"></ui-star-white>
     </div>
     <ui-title-f-z16-f-w400 class="mt-24 grey">
       {{ props.text }}
@@ -24,10 +20,12 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
 import UiTitleFZ14 from "./Ui/Title/UiTitleFZ14.vue";
 import UiTitleFZ20FW400 from "./Ui/Title/UiTitleFZ20FW400.vue";
-import UiTitleFZ16FW400 from "./Ui/Title/UiTitleFZ20FW400.vue";
+import UiTitleFZ16FW400 from "./Ui/Title/UiTitleFZ16FW400.vue";
 import UiStarWhite from "./Ui/UiIcon/UiStarWhite.vue";
+import UiStarIcon from "./Ui/UiIcon/UiStarIcon.vue";
 
 const props = defineProps({
   name: {
@@ -46,10 +44,14 @@ const props = defineProps({
     type: String,
     requred: true,
   },
-  reviews: {
-    type: Array,
+  gradeStar: {
+    type: Number,
     requred: true,
   },
+});
+
+const test = computed(() => {
+  return props.stars;
 });
 </script>
 

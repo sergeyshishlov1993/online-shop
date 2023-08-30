@@ -26,10 +26,15 @@
       <ui-title-f-z16 class="black">TEST</ui-title-f-z16>
       <ui-title-f-z16-f-w400>TEST</ui-title-f-z16-f-w400>
       <ui-title-f-z14>TEST</ui-title-f-z14>
+      <ui-title-f-z13>TEST</ui-title-f-z13>
+      <ui-title-f-z12>TEST</ui-title-f-z12>
 
       <!-- ------------------------------------------------------------- -->
       <div>
         <ui-button></ui-button>
+        <ui-form-button>
+          <ui-title-f-z16>TEST</ui-title-f-z16>
+        </ui-form-button>
         <ui-circle-button />
       </div>
       <!-- -------------------------------------------------- -->
@@ -55,6 +60,8 @@ import UiInstagram from "@/components/Ui/UiIcon/UiInstagramIcon";
 import UiTwiter from "@/components/Ui/UiIcon/UiTwiterIcon";
 import UiArrowBottomIcon from "@/components/Ui/UiIcon/UiArrowBottomIcon.vue";
 
+import UiTitleFZ12 from "@/components/Ui/Title/UiTitleFZ12.vue";
+import UiTitleFZ13 from "@/components/Ui/Title/UiTitleFZ13.vue";
 import UiTitleFZ14 from "@/components/Ui/Title/UiTitleFZ14.vue";
 import UiTitleFZ16 from "@/components/Ui/Title/UiTitleFZ16.vue";
 import UiTitleFZ26 from "@/components/Ui/Title/UiTitleFZ26.vue";
@@ -64,6 +71,7 @@ import UiTitleFZ16FW400 from "@/components/Ui/Title/UiTitleFZ16FW400.vue";
 import UiTitleFZ20FW400 from "@/components/Ui/Title/UiTitleFZ20FW400.vue";
 
 import UiButton from "@/components/Ui/UiButton";
+import UiFormButton from "@/components/Ui/Form-Element/UiFormButton.vue";
 import UiCircleButton from "@/components/Ui/UiCircleButton.vue";
 import UiCheckBox from "@/components/Ui/Form-Element/UiCheckBox.vue";
 </script>

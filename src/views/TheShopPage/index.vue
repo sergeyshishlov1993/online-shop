@@ -31,12 +31,12 @@
     <ui-wrapper-grid>
 
       <ui-card-item
-      @click="goToAboutCard"
-        v-for="card in itemCardData"
+        v-for="(card, id) in itemCardData"
         :key="card.price"
         :path="card.src"
         :title="card.title"
         :subtitle="card.price"
+        @click="goToAboutCard(id)"
       ></ui-card-item>
 
     </ui-wrapper-grid>
@@ -93,8 +93,9 @@ function getSelectValue(event) {
  
 }
 
-function goToAboutCard() {
-  router.push('/about-product')
+function goToAboutCard(id) {
+  router.push(`/about-product/${id}`)
+ 
 }
 
 

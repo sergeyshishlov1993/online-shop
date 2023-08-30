@@ -11,7 +11,6 @@ h2 {
   font-weight: 400;
   line-height: 26px;
   letter-spacing: 0em;
-  text-align: left;
   color: rgba(0, 0, 0, 1);
 }
 </style>

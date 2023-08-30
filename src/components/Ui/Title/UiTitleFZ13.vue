@@ -7,10 +7,10 @@
 <style lang="scss" scoped>
 h2 {
   font-family: DM Sans;
-  font-size: 26px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 35px;
+  line-height: 30px;
   letter-spacing: 0em;
-  color: rgba(255, 255, 255, 1);
+  color: rgba(112, 112, 112, 1);
 }
 </style>

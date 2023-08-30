@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <h2>
-      <slot />
-    </h2>
-    <span class="mt-18"></span>
-  </div>
+  <h2>
+    <slot />
+  </h2>
 </template>
 
 <style lang="scss" scoped>

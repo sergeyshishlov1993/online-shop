@@ -30,28 +30,37 @@
   </div>
 
   <div v-else class="reviews">
-    <the-reviews
-      v-for="review in props.reviews"
-      :key="review.date"
-      :name="review.namePersone"
-      :date="review.date"
-      :stars="review.stars"
-      :text="review.reviewText"
-      :reviews="reviews"
-    />
+    <div>
+      <ui-title-f-z20-f-w400
+        >{{ reviews.length }} Reviews for lira earings</ui-title-f-z20-f-w400
+      >
+      <the-reviews
+        v-for="review in reviews"
+        :key="review.date"
+        :name="review.namePersone"
+        :date="review.date"
+        :stars="review.stars"
+        :gradeStar="review.gradeStar"
+        :text="review.reviewText"
+      />
+    </div>
+    <the-reviews-form />
   </div>
 </template>
 
 <script setup>
+import { useItemStor } from "@/stores/fakeData";
+import UiTitleFZ20FW400 from "../Title/UiTitleFZ20FW400.vue";
 import UiTitleFZ16FW400 from "../Title/UiTitleFZ16FW400.vue";
 import TheReviews from "@/components/TheReviews.vue";
+import TheReviewsForm from "@/components/TheReviewsForm.vue";
+
+const stor = useItemStor();
+const reviews = stor.reviews;
+
 const props = defineProps({
   selectedTab: {
     type: String,
-    requred: true,
-  },
-  reviews: {
-    type: Array,
     requred: true,
   },
 });
@@ -60,5 +69,10 @@ const props = defineProps({
 <style lang="scss" scoped>
 .meaning {
   color: linear-gradient(0deg, #9f9c9c, #a7a5a5);
+}
+.reviews {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
 </style>

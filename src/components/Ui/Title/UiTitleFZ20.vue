@@ -11,7 +11,6 @@ h2 {
   font-weight: 700;
   line-height: 26px;
   letter-spacing: 0em;
-  text-align: left;
   color: var(--var-cardtext-color);
 }
 </style>

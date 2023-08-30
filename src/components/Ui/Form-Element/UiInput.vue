@@ -3,6 +3,7 @@
     :type="props.type"
     :placeholder="props.placeholder"
     :value="props.value"
+    :name="props.name"
   />
 </template>
 
@@ -17,6 +18,10 @@ const props = defineProps({
     required: true,
   },
   value: {
+    type: String,
+    required: true,
+  },
+  name: {
     type: String,
     required: true,
   },

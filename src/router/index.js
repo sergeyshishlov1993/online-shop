@@ -10,10 +10,20 @@ const routes = [
   {
     path: "/shop",
     name: "shop",
-    component: () => import("../views/TheSecondPage"),
+    component: () => import("../views/TheShopPage"),
   },
   {
-    path: "/about-product",
+    path: "/blog",
+    name: "blog",
+    component: () => import("../views/TheBlogPage"),
+  },
+  {
+    path: "/our-story",
+    name: "our-story",
+    component: () => import("../views/TheOurStory"),
+  },
+  {
+    path: "/about-product/:id",
     name: "about",
     component: () => import("../views/TheAboutProduct"),
   },

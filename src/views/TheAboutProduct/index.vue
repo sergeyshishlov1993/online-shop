@@ -1,15 +1,11 @@
 <template>
   <div class="wrapper">
     <div class="wrapper__img">
-      <img
-        src="../../assets/img/firstScrin//Card/firstCard.png"
-        id="mainImg"
-        alt=""
-      />
-      <img src="../../assets/img/firstScrin//Card/firstCard.png" alt="" />
-      <img src="../../assets/img/firstScrin//Card/firstCard.png" alt="" />
-      <img src="../../assets/img/firstScrin//Card/firstCard.png" alt="" />
-      <img src="../../assets/img/firstScrin//Card/firstCard.png" alt="" />
+      <img :src="getIndexItemCard" id="mainImg" alt="" />
+      <img :src="getIndexItemCard" alt="" />
+      <img :src="getIndexItemCard" alt="" />
+      <img :src="getIndexItemCard" alt="" />
+      <img :src="getIndexItemCard" alt="" />
     </div>
 
     <div class="wrapper__description">
@@ -51,13 +47,14 @@
     />
   </div>
 
-  <ui-tabs-text :selectedTab="selectedTab" :reviews="reviews"></ui-tabs-text>
+  <ui-tabs-text :selectedTab="selectedTab"></ui-tabs-text>
 
   <div class="wrapper__similar-items"></div>
 </template>
 
 <script setup>
 import { useItemStor } from "@/stores/fakeData";
+import { useRoute } from "vue-router";
 import UiTitleFZ16 from "@/components/Ui/Title/UiTitleFZ16.vue";
 import UiTitleFZ20 from "@/components/Ui/Title/UiTitleFZ20.vue";
 import UiTitleFZ26 from "@/components/Ui/Title/UiTitleFZ26.vue";
@@ -71,8 +68,10 @@ import UiTabsText from "@/components/Ui/Tab/UiTabsText.vue";
 import { ref, computed } from "vue";
 
 const stor = useItemStor();
+const route = useRoute();
 
 const tabs = stor.tabs;
+
 const tabsCounter = computed(() => {
   return tabs.map((el) => {
     if (el.name === "Reviews") {
@@ -81,6 +80,11 @@ const tabsCounter = computed(() => {
       return el;
     }
   });
+});
+
+const getIndexItemCard = computed(() => {
+  const indexSrc = stor.itemArr[route.params.id].src;
+  return require(`../../assets/img/firstScrin//Card/${indexSrc}`);
 });
 
 const reviews = stor.reviews;
