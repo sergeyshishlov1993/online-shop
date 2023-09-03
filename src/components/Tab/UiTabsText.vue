@@ -40,9 +40,10 @@
         :name="review.namePersone"
         :date="review.date"
         :stars="review.stars"
-        :gradeStar="review.gradeStar"
+        :grade="review.gradeStar"
         :text="review.reviewText"
-      />
+      >
+      </the-reviews>
     </div>
     <the-reviews-form />
   </div>
@@ -61,7 +62,7 @@ const reviews = stor.reviews;
 const props = defineProps({
   selectedTab: {
     type: String,
-    requred: true,
+    required: true,
   },
 });
 </script>

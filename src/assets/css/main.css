@@ -56,6 +56,9 @@
 .ml-30 {
   margin-left: 30px;
 }
+.ml-39 {
+  margin-left: 39px;
+}
 .ml-41 {
   margin-left: 41px;
 }
@@ -70,6 +73,9 @@
 .mr-10 {
   margin-right: 10px;
 }
+.mr-23 {
+  margin-right: 23px;
+}
 .mr-30 {
   margin-right: 39px;
 }
@@ -81,6 +87,7 @@
 
 .center {
   margin: 0 auto !important;
+  text-align: center;
 }
 
 .width-100 {

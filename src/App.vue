@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <TheHeader />
+
     <router-view />
+
     <TheFooter class="mt-250" />
   </div>
 </template>

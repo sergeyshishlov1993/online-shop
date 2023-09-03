@@ -1,50 +1,59 @@
 <template>
   <div class="wrapper">
+    <!-- -------------------------------------------------------------- -->
+
     <div class="wrapper__list">
       <ul>
         <router-link to="#"
           ><ui-title-f-z16 class="black">CONTACT</ui-title-f-z16>
         </router-link>
+
         <router-link to="#">
           <ui-title-f-z16 class="ml-41 black"
             >TERMS OF SERVICES</ui-title-f-z16
           ></router-link
         >
+
         <router-link to="#">
           <ui-title-f-z16 class="ml-41 black"
             >SHIPPING AND RETURNS</ui-title-f-z16
           ></router-link
         >
       </ul>
+
       <ui-title-f-z16 class="mt-48 black"
         >© 2021 Shelly. Terms of use and privacy policy.</ui-title-f-z16
       >
     </div>
+
     <div class="wrapper__link">
       <div class="wrapper__text">
         <ui-title-f-z16 class="black">
           Give an email, get the newsletter.
         </ui-title-f-z16>
+
         <router-link to="#"> <ui-arrow-rigth /></router-link>
       </div>
 
+      <!-- -------------------------social-link---------------------- -->
       <div class="wrapper__social-media mt-48">
         <ui-link-in-icon class="ml-30" />
         <ui-facebook-icon class="ml-30" />
         <ui-instagram-icon class="ml-30" />
         <ui-twiter-icon class="ml-30" />
       </div>
+      <!-- -------------------------------------------------------------- -->
     </div>
   </div>
 </template>
 
 <script setup>
-import UiTitleFZ16 from "./Ui/Title/UiTitleFZ16.vue";
-import UiArrowRigth from "./Ui/UiIcon/UiArrowRigth.vue";
-import UiLinkInIcon from "./Ui/UiIcon/UiLinkInIcon.vue";
-import UiFacebookIcon from "./Ui/UiIcon/UiFacebookIcon.vue";
-import UiInstagramIcon from "./Ui/UiIcon/UiInstagramIcon.vue";
-import UiTwiterIcon from "./Ui/UiIcon/UiTwiterIcon.vue";
+import UiTitleFZ16 from "./Title/UiTitleFZ16.vue";
+import UiArrowRigth from "./Ui-Icon/UiArrowRigth.vue";
+import UiLinkInIcon from "./Ui-Icon/UiLinkInIcon.vue";
+import UiFacebookIcon from "./Ui-Icon/UiFacebookIcon.vue";
+import UiInstagramIcon from "./Ui-Icon/UiInstagramIcon.vue";
+import UiTwiterIcon from "./Ui-Icon/UiTwiterIcon.vue";
 </script>
 
 <style lang="scss" scoped>

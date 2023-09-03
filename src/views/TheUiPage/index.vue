@@ -44,36 +44,36 @@
 </template>
 
 <script setup>
-import UiLogo from "@/components/Ui/UiLogo";
-import UiNavBarLink from "@/components/Ui/UiNavBarLink";
+import UiLogo from "@/components/Ui-Icon/UiLogo.vue";
+import UiNavBarLink from "@/components/Ui-Components/UiNavBarLink.vue";
 
-import UiVarticalLine from "@/components/Ui/UiIcon/UiVerticalLine";
-import UiSerch from "@/components/Ui/UiIcon/UiSearchIcon";
-import UiTrash from "@/components/Ui/UiIcon/UiTrashIcon";
-import UiPerson from "@/components/Ui/UiIcon/UiPersonIcon";
-import UiEae from "@/components/Ui/UiIcon/UiEaeIcon";
-import UiHeard from "@/components/Ui/UiIcon/UiHeardIcon";
-import UiArrowRigth from "@/components/Ui/UiIcon/UiArrowRigth";
-import UiLinkIn from "@/components/Ui/UiIcon/UiLinkInIcon";
-import UiFacebook from "@/components/Ui/UiIcon/UiFacebookIcon";
-import UiInstagram from "@/components/Ui/UiIcon/UiInstagramIcon";
-import UiTwiter from "@/components/Ui/UiIcon/UiTwiterIcon";
-import UiArrowBottomIcon from "@/components/Ui/UiIcon/UiArrowBottomIcon.vue";
+import UiVarticalLine from "@/components/Ui-Icon/UiVerticalLine.vue";
+import UiSerch from "@/components/Ui-Icon/UiSearchIcon.vue";
+import UiTrash from "@/components/Ui-Icon/UiTrashIcon.vue";
+import UiPerson from "@/components/Ui-Icon/UiPersonIcon.vue";
+import UiEae from "@/components/Ui-Icon/UiEaeIcon.vue";
+import UiHeard from "@/components/Ui-Icon/UiHeardIcon.vue";
+import UiArrowRigth from "@/components/Ui-Icon/UiArrowRigth.vue";
+import UiLinkIn from "@/components/Ui-Icon/UiLinkInIcon.vue";
+import UiFacebook from "@/components/Ui-Icon/UiFacebookIcon.vue";
+import UiInstagram from "@/components/Ui-Icon/UiInstagramIcon.vue";
+import UiTwiter from "@/components/Ui-Icon/UiTwiterIcon.vue";
+import UiArrowBottomIcon from "@/components/Ui-Icon/UiArrowBottomIcon.vue";
 
-import UiTitleFZ12 from "@/components/Ui/Title/UiTitleFZ12.vue";
-import UiTitleFZ13 from "@/components/Ui/Title/UiTitleFZ13.vue";
-import UiTitleFZ14 from "@/components/Ui/Title/UiTitleFZ14.vue";
-import UiTitleFZ16 from "@/components/Ui/Title/UiTitleFZ16.vue";
-import UiTitleFZ26 from "@/components/Ui/Title/UiTitleFZ26.vue";
-import UiTitleFZ20 from "@/components/Ui/Title/UiTitleFZ20.vue";
-import UiTitleFZ33 from "@/components/Ui/Title/UiTitleFZ33.vue";
-import UiTitleFZ16FW400 from "@/components/Ui/Title/UiTitleFZ16FW400.vue";
-import UiTitleFZ20FW400 from "@/components/Ui/Title/UiTitleFZ20FW400.vue";
+import UiTitleFZ12 from "@/components/Title/UiTitleFZ12.vue";
+import UiTitleFZ13 from "@/components/Title/UiTitleFZ13.vue";
+import UiTitleFZ14 from "@/components/Title/UiTitleFZ14.vue";
+import UiTitleFZ16 from "@/components/Title/UiTitleFZ16.vue";
+import UiTitleFZ26 from "@/components/Title/UiTitleFZ26.vue";
+import UiTitleFZ20 from "@/components/Title/UiTitleFZ20.vue";
+import UiTitleFZ33 from "@/components/Title/UiTitleFZ33.vue";
+import UiTitleFZ16FW400 from "@/components/Title/UiTitleFZ16FW400.vue";
+import UiTitleFZ20FW400 from "@/components/Title/UiTitleFZ20FW400.vue";
 
-import UiButton from "@/components/Ui/UiButton";
-import UiFormButton from "@/components/Ui/Form-Element/UiFormButton.vue";
-import UiCircleButton from "@/components/Ui/UiCircleButton.vue";
-import UiCheckBox from "@/components/Ui/Form-Element/UiCheckBox.vue";
+import UiButton from "@/components/Ui-Components/UiButton.vue";
+import UiFormButton from "@/components/Form-Element/UiFormButton.vue";
+import UiCircleButton from "@/components/Ui-Components/UiCircleButton.vue";
+import UiCheckBox from "@/components/Form-Element/UiCheckBox.vue";
 </script>
 
 <style lang="scss" scoped>

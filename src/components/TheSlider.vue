@@ -2,9 +2,12 @@
   <div class="slider">
     <ui-title-f-z33>Gold big hoops </ui-title-f-z33>
     <ui-title-f-z20 class="mt-18">$ 68,00</ui-title-f-z20>
+
     <ui-button class="mt-48">
       <ui-title-f-z20 class="center">VIEW PRODUCT</ui-title-f-z20>
     </ui-button>
+
+    <!-- -------------------slider-button-------------- -->
     <div class="slider__circle">
       <ui-circle-button class="ml-13 active" />
       <ui-circle-button class="ml-13" />
@@ -16,10 +19,10 @@
 </template>
 
 <script setup>
-import UiTitleFZ33 from "./Ui/Title/UiTitleFZ33.vue";
-import UiTitleFZ20 from "./Ui/Title/UiTitleFZ20.vue";
-import UiButton from "./Ui/UiButton.vue";
-import UiCircleButton from "./Ui/UiCircleButton.vue";
+import UiTitleFZ33 from "./Title/UiTitleFZ33.vue";
+import UiTitleFZ20 from "./Title/UiTitleFZ20.vue";
+import UiButton from "./Ui-Components/UiButton.vue";
+import UiCircleButton from "./Ui-Components/UiCircleButton.vue";
 </script>
 
 <style lang="scss" scoped>

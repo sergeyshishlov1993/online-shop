@@ -1,8 +1,15 @@
 <template>
+  <!-- -------------------------------title page------------------- -->
   <ui-title-f-z33 class="black mt-96">Shop The Latest</ui-title-f-z33>
+
   <div class="wrapper mt-40">
+
+    <!-- -------------------------------wrapper------------------- -->
+
+    <!-- -------------------------------form search------------------- -->
     <ui-form class="mr-30">
 
+      <!-- -------------------------------input------------------- -->
       <ui-input
         :type="'search'"
         :placeholder="'Search...'"
@@ -10,6 +17,7 @@
         :value="inputValue"
       ></ui-input>
 
+      <!-- -------------------------------select------------------- -->
       <ui-select @change="getSelectValue"  class="mt-40">
 
         <ui-option :value="''">
@@ -26,8 +34,11 @@
       </ui-select>
       
       <ui-select class="mt-16"></ui-select>
-    </ui-form>
 
+    </ui-form>
+<!-- ------------------------------------------------------------------- -->
+
+<!-- -------------------------------item card------------------- -->
     <ui-wrapper-grid>
 
       <ui-card-item
@@ -40,6 +51,8 @@
       ></ui-card-item>
 
     </ui-wrapper-grid>
+
+     <!-- -------------------------------wrapper /------------------- -->
   </div>
 
 </template>
@@ -48,27 +61,30 @@
 import {useRouter} from "vue-router"
 import { ref, computed } from "vue";
 import { useItemStor } from "@/stores/fakeData";
-import UiTitleFZ33 from "@/components/Ui/Title/UiTitleFZ33.vue";
-import UiTitleFZ14 from "@/components/Ui/Title/UiTitleFZ14.vue";
-import UiCardItem from "@/components/Ui/UiCardItem.vue";
-import UiForm from "@/components/Ui/Form-Element/UiForm.vue";
-import UiWrapperGrid from "@/components/Ui/UiWrapperGrid.vue";
-import UiInput from "@/components/Ui/Form-Element/UiInput.vue";
-import UiSelect from "@/components/Ui/Form-Element/UiSelect.vue";
-import UiOption from "@/components/Ui/Form-Element/UiOption.vue";
+import UiTitleFZ33 from "@/components/Title/UiTitleFZ33.vue";
+import UiTitleFZ14 from "@/components/Title/UiTitleFZ14.vue";
+import UiCardItem from "@/components/Ui-Components/UiCardItem.vue";
+import UiForm from "@/components/Form-Element/UiForm.vue";
+import UiWrapperGrid from "@/components/Ui-Components/UiWrapperGrid.vue";
+import UiInput from "@/components/Form-Element/UiInput.vue";
+import UiSelect from "@/components/Form-Element/UiSelect.vue";
+import UiOption from "@/components/Form-Element/UiOption.vue";
 
-const stor = useItemStor();
+
+const store = useItemStor();
 const router = useRouter()
 
 const inputValue = ref("");
 const selectValue = ref("");
 
+// <!-- ---------------- computed property for dynamically filtering the array of data ------------------- -->
 const itemCardData = computed(() => {
-  let product = stor.itemArr;
+  let product = store.itemArr;
   let search = inputValue.value;
   let select = selectValue.value
 
   if (search) {
+    // <!-- ---------------- search that ignores case and searches by characters ------------------- -->
     product = product.filter((el) => {
       return (
         el.title.toLowerCase().indexOf(search) !== -1 ||
@@ -76,6 +92,8 @@ const itemCardData = computed(() => {
       );
     });
   }
+    // <!-- ---------------- search by price ignores extra characters except numbers, convert to numeric type ------------------- -->
+
   if(select === 'min20') {
     return product = product.filter((el) => parseInt(el.price.replace(/[^,\d]/g, '') ) < 20 )
   }

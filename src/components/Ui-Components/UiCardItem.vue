@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import UiTitleFZ20FW400 from "./Title/UiTitleFZ20FW400.vue";
+import UiTitleFZ20FW400 from "../Title/UiTitleFZ20FW400.vue";
 
 const path = require(`@/assets/img/firstScrin/Card/${props.path}`);
 

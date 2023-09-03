@@ -7,10 +7,9 @@
 <style lang="scss" scoped>
 h2 {
   font-family: DM Sans;
-  font-size: 33px;
-  font-weight: 500;
-  line-height: 43px;
+  font-size: 20px;
+  font-weight: 400;
   letter-spacing: 0em;
-  color: var(--var-firstScrinText-color);
+  color: rgba(0, 0, 0, 1);
 }
 </style>

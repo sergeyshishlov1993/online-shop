@@ -1,5 +1,7 @@
 <template>
   <div class="wrapper-form">
+    <!-- ---------------wrapper------------------- -->
+
     <ui-title-f-z20-f-w400 class="black">Add a Review</ui-title-f-z20-f-w400>
     <ui-title-f-z13 class="mt-10"
       >Your email address will not be published. Required fields are marked
@@ -8,6 +10,7 @@
 
     <ui-form class="mt-48 form-reviews" @submit.prevent="sendReviews">
       <!-- ---------------input------------------- -->
+
       <ui-input
         class="width-100"
         :value="reviewValue"
@@ -36,6 +39,7 @@
       />
 
       <!-- -------------check-box------------------ -->
+
       <div class="mt-59 wrapper__check">
         <ui-check-box
           :checked="checkBoxValue"
@@ -48,36 +52,40 @@
       </div>
 
       <!-- ------------------rating----------- -->
+
       <ui-title-f-z14 class="mt-48">Your Rating*</ui-title-f-z14>
       <div class="mt-10">
         <star-counter
           :starsCount="starsCount"
-          :rate="rate"
+          :rate="currentRate"
           @changeStar="(emitParam) => countLikeStar(emitParam)"
         ></star-counter>
       </div>
 
       <!-- -------------------button(submit)---------------- -->
+
       <ui-form-button class="mt-48">
         <ui-title-f-z16>Submit</ui-title-f-z16>
       </ui-form-button>
     </ui-form>
+
+    <!-- ---------------wrapper /------------------- -->
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { useItemStor } from "@/stores/fakeData";
-import UiForm from "./Ui/Form-Element/UiForm.vue";
-import UiInput from "./Ui/Form-Element/UiInput.vue";
-import UiCheckBox from "./Ui/Form-Element/UiCheckBox.vue";
-import UiTitleFZ20FW400 from "./Ui/Title/UiTitleFZ20FW400.vue";
-import UiTitleFZ16 from "./Ui/Title/UiTitleFZ16.vue";
-import UiTitleFZ14 from "./Ui/Title/UiTitleFZ14.vue";
-import UiTitleFZ13 from "./Ui/Title/UiTitleFZ13.vue";
-import UiTitleFZ12 from "./Ui/Title/UiTitleFZ12.vue";
-import UiFormButton from "./Ui/Form-Element/UiFormButton.vue";
-import StarCounter from "./Ui/Form-Element/StarCounter.vue";
+import UiForm from "./Form-Element/UiForm.vue";
+import UiInput from "./Form-Element/UiInput.vue";
+import UiCheckBox from "./Form-Element/UiCheckBox.vue";
+import UiTitleFZ20FW400 from "./Title/UiTitleFZ20FW400.vue";
+import UiTitleFZ16 from "./Title/UiTitleFZ16.vue";
+import UiTitleFZ14 from "./Title/UiTitleFZ14.vue";
+import UiTitleFZ13 from "./Title/UiTitleFZ13.vue";
+import UiTitleFZ12 from "./Title/UiTitleFZ12.vue";
+import UiFormButton from "./Form-Element/UiFormButton.vue";
+import StarCounter from "./Form-Element/StarCounter.vue";
 
 // --------------------stor----------------------------
 
@@ -91,7 +99,7 @@ const nameInputValue = ref("");
 const emailInputValue = ref("");
 const checkBoxValue = ref();
 const starsCount = ref(5);
-const rate = ref();
+const currentRate = ref(0);
 const currentDate = ref();
 
 // -------------------current-date-----------------
@@ -128,11 +136,10 @@ function getCheckBoxValue(event) {
   checkBoxValue.value = event.target.checked;
 }
 
+// <!-- ---------------get the user's star rating------------------- -->
 function countLikeStar(emitParam) {
-  return (rate.value = emitParam);
+  currentRate.value = emitParam;
 }
-
-console.log(rate.value);
 
 function sendReviews() {
   // -----------------------push-data---------------------
@@ -141,7 +148,7 @@ function sendReviews() {
     namePersone: nameInputValue.value,
     date: getCurrentDate().format(date),
     stars: 5,
-    gradeStars: 0,
+    gradeStar: currentRate.value,
     reviewText: reviewValue.value,
   });
 
@@ -150,7 +157,7 @@ function sendReviews() {
   reviewValue.value = "";
   nameInputValue.value = "";
   emailInputValue.value = "";
-  rate.value = ref(0);
+  currentRate.value = ref(0);
 }
 </script>
 

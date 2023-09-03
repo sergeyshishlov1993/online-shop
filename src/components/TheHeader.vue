@@ -58,12 +58,12 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
-import UiLogo from "./Ui/UiLogo.vue";
-import UiNavBarLink from "./Ui/UiNavBarLink.vue";
-import UiVerticalLine from "./Ui/UiIcon/UiVerticalLine.vue";
-import UiSerch from "@/components/Ui/UiIcon/UiSearchIcon.vue";
-import UiTrash from "@/components/Ui/UiIcon/UiTrashIcon.vue";
-import UiPerson from "./Ui/UiIcon/UiPersonIcon.vue";
+import UiLogo from "./Ui-Icon/UiLogo.vue";
+import UiNavBarLink from "./Ui-Components/UiNavBarLink.vue";
+import UiVerticalLine from "./Ui-Icon/UiVerticalLine.vue";
+import UiSerch from "@/components/Ui-Icon/UiSearchIcon.vue";
+import UiTrash from "@/components/Ui-Icon/UiTrashIcon.vue";
+import UiPerson from "./Ui-Icon/UiPersonIcon.vue";
 
 const route = useRoute();
 

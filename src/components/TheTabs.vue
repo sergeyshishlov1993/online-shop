@@ -1,4 +1,6 @@
 <template>
+  <!-- ------------------------item card------------------ -->
+
   <ui-tab-item
     v-for="(tab, id) in props.names"
     :key="tab.name"
@@ -11,7 +13,7 @@
 </template>
 
 <script setup>
-import UiTabItem from "@/components/Ui/Tab/UiTabItem.vue";
+import UiTabItem from "@/components/Tab/UiTabItem.vue";
 
 const emit = defineEmits(["changeTab"]);
 

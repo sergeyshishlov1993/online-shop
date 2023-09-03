@@ -7,9 +7,9 @@
 <style lang="scss" scoped>
 h2 {
   font-family: DM Sans;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 22px;
+  font-size: 20px;
+  font-weight: 700;
   letter-spacing: 0em;
+  color: var(--var-cardtext-color);
 }
 </style>

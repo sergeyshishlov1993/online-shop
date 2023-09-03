@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import UiStarWhite from "../UiIcon/UiStarWhite.vue";
+import UiStarWhite from "../Ui-Icon/UiStarWhite.vue";
 
 const emit = defineEmits(["change"]);
 const props = defineProps({

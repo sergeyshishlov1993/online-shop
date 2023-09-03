@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import UiArrowBottomIcon from "../UiIcon/UiArrowBottomIcon.vue";
+import UiArrowBottomIcon from "../Ui-Icon/UiArrowBottomIcon.vue";
 </script>
 
 <style lang="scss" scoped>
