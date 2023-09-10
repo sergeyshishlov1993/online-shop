@@ -49,7 +49,7 @@ import UiNavBarLink from "@/components/Ui-Components/UiNavBarLink.vue";
 
 import UiVarticalLine from "@/components/Ui-Icon/UiVerticalLine.vue";
 import UiSerch from "@/components/Ui-Icon/UiSearchIcon.vue";
-import UiTrash from "@/components/Ui-Icon/UiTrashIcon.vue";
+import UiTrash from "@/components/Ui-Icon/UiShoppingBagIcon.vue";
 import UiPerson from "@/components/Ui-Icon/UiPersonIcon.vue";
 import UiEae from "@/components/Ui-Icon/UiEaeIcon.vue";
 import UiHeard from "@/components/Ui-Icon/UiHeardIcon.vue";

@@ -11,6 +11,7 @@
 
       <!-- -------------------------------input------------------- -->
       <ui-input
+      :name="'search'"
         :type="'search'"
         :placeholder="'Search...'"
         @input="getInputValue"
@@ -42,12 +43,12 @@
     <ui-wrapper-grid>
 
       <ui-card-item
-        v-for="(card, id) in itemCardData"
+        v-for="card in itemCardData"
         :key="card.price"
         :path="card.src"
         :title="card.title"
         :subtitle="card.price"
-        @click="goToAboutCard(id)"
+        @click="goToAboutCard(card.id)"
       ></ui-card-item>
 
     </ui-wrapper-grid>
@@ -112,7 +113,7 @@ function getSelectValue(event) {
 }
 
 function goToAboutCard(id) {
-  router.push(`/about-product/${id}`)
+  router.push(`/about-product/${id - 1}`)
  
 }
 

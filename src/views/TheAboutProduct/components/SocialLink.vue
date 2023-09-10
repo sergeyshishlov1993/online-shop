@@ -1,9 +1,10 @@
 <template>
   <div class="wrapper__social mt-70">
     <ui-heard-icon :like="like" @addLike="addToLikeList" />
+
     <ui-vertical-line class="mr-39 ml-39" />
 
-    <ui-letter-icon @click="log" class="mr-23" />
+    <ui-letter-icon class="mr-23" />
     <ui-instagram-icon class="mr-23" />
     <ui-facebook-icon class="mr-23" />
     <ui-twiter-icon class="mr-23" />

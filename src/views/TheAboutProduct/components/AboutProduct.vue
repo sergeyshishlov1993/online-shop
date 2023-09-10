@@ -1,13 +1,7 @@
 <template>
   <!-- -------------------------------pictures product ------------------- -->
 
-  <div class="wrapper__img">
-    <img :src="srcImg" id="mainImg" alt="" />
-    <img :src="srcImg" alt="" />
-    <img :src="srcImg" alt="" />
-    <img :src="srcImg" alt="" />
-    <img :src="srcImg" alt="" />
-  </div>
+  <img-product :srcImg="srcImg" />
 
   <!-- -------------------------------about product ------------------- -->
 
@@ -15,17 +9,20 @@
     <!-- -------------------------------name and price product ------------------- -->
 
     <ui-title-f-z26 class="black">{{ props.productCart.title }}</ui-title-f-z26>
+
     <ui-title-f-z20 class="yellow mt-24">{{
       props.productCart.price
     }}</ui-title-f-z20>
 
     <!-- ----------------------------- average ------------------------------- -->
     <div class="wrapper__star">
-      <ui-star-icon
-        v-for="star in 5"
+      <ui-star-white
+        v-for="(star, index) in 5"
         :key="star"
+        :class="{ grade: index + 1 <= calculateAverageScore }"
         class="mt-70 mr-10"
-      ></ui-star-icon>
+      ></ui-star-white>
+
       <ui-title-f-z16 class="black ml-13">1 customer review</ui-title-f-z16>
     </div>
 
@@ -40,39 +37,54 @@
     <div class="wrapper__add-cart mt-48">
       <!-- ------------------counter--------------------------------------- -->
 
-      <div class="counter mr-23">
-        <button @click="counter !== 0 ? counter-- : counter">-</button>
-
+      <ui-counter
+        @change-counter-value="(counterValue) => changeCounter(counterValue)"
+      >
         <ui-title-f-z16 class="black">{{ counter }}</ui-title-f-z16>
-
-        <button @click="counter++">+</button>
-      </div>
+      </ui-counter>
 
       <!-- ----------------------add cart----------------------------------- -->
       <ui-button class="btn__cart" @click="getProductToCart">
         <ui-title-f-z16 class="black center">ADD TO CART</ui-title-f-z16>
       </ui-button>
     </div>
+    <!-- ---------------------- social media ----------------------------------->
 
     <social-link />
+
+    <!-- ---------------------- articles and categories --------------------- -->
+    <div class="wrapper__categories mt-59">
+      <categories-product :title="'SKU:'" :value="'12'" />
+      <categories-product :title="'Categories:'" :value="'Fashion, Style'" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 import { useItemStor } from "@/stores/fakeData";
+import { useCartData } from "@/stores/cartData";
 
 import UiTitleFZ16 from "@/components/Title/UiTitleFZ16.vue";
 import UiTitleFZ16FW400 from "@/components/Title/UiTitleFZ16FW400.vue";
 import UiTitleFZ20 from "@/components/Title/UiTitleFZ20.vue";
 import UiTitleFZ26 from "@/components/Title/UiTitleFZ26.vue";
 import UiButton from "@/components/Ui-Components/UiButton.vue";
-import UiStarIcon from "@/components/Ui-Icon/UiStarIcon.vue";
+import UiStarWhite from "@/components/Ui-Icon/UiStarWhite.vue";
+
 import SocialLink from "@/views/TheAboutProduct/components/SocialLink.vue";
+import ImgProduct from "@/views/TheAboutProduct/components/ImgProduct.vue";
+import CategoriesProduct from "@/views/TheAboutProduct/components/CategoriesProduct.vue";
+import UiCounter from "@/components/Ui-Components/UiCounter.vue";
 
 const route = useRoute();
-const store = useItemStor();
+
+const { itemArr } = useItemStor(); //get arrays from store
+
+const { cartData } = useCartData();
+
+const currentRoute = route.params.id;
 
 const props = defineProps({
   productCart: {
@@ -81,47 +93,54 @@ const props = defineProps({
   },
 });
 
-const counter = ref(1);
+const calculateAverageScore = computed(() => {
+  let currentGrate = 0;
+
+  const { reviews } = itemArr[currentRoute];
+
+  reviews.forEach((item) => (currentGrate += item.gradeStar));
+
+  return (currentGrate / reviews.length).toFixed();
+});
+//calculate an average rating based on the ratings we receive in reviews
+
+const counter = ref(1); //variable for counting ordered goods
+
 const srcImg = require(`@/assets/img/firstScrin/Card/${props.productCart.src}`);
 
+function changeCounter(counterValue) {
+  counter.value = counterValue;
+}
+
 function getProductToCart() {
-  const arrItem = store.itemArr;
   for (let i = 0; i < counter.value; i++) {
-    store.cart.push(arrItem[route.params.id]);
+    cartData.cart.push(itemArr[currentRoute]);
   }
+
+  itemArr[currentRoute].quantity += counter.value; //add quantity of product object
+
+  cartData.showDoneModal = true; //show a modal window for successful adding to cart
+
   counter.value = 1;
 }
+
+function hideModalWindow() {
+  setInterval(() => {
+    return (cartData.showDoneModal = false);
+  }, 5000);
+} //hide the modal window
+
+hideModalWindow();
 </script>
 
 <style lang="scss" scoped>
-.wrapper__img {
-  display: grid;
-  grid-template-columns: 120px 540px;
-  grid-template-rows: repeat(4, 120px);
-  gap: 40px;
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
 .wrapper__star {
   display: flex;
   align-items: baseline;
 }
-#mainImg {
-  grid-row: 1/5;
-  grid-column: 2;
-}
+
 .wrapper__add-cart {
   display: flex;
-}
-.counter {
-  width: 102px;
-  height: 53px;
-  background: rgba(239, 239, 239, 1);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
 }
 .btn__cart {
   padding: 16px 0;
@@ -131,8 +150,7 @@ function getProductToCart() {
   border-radius: 6px;
 }
 
-button {
-  height: 27px;
-  width: 10px;
+.grade {
+  fill: black;
 }
 </style>

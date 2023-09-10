@@ -11,57 +11,61 @@
 
   <div class="wrapper__tabs">
     <the-tabs
-      :names="tabsCounter"
+      :names="calculatesTheNumberOfReviews"
       :selectedTab="selectedTab"
       @changeTab="changeTab"
     />
   </div>
 
   <!-- -------------------------------show the desired content depending on the selected tab ------------------- -->
-  <ui-tabs-text :selectedTab="selectedTab"></ui-tabs-text>
+  <ui-tabs-text :item="currentTabsItem" :selectedTab="selectedTab">
+  </ui-tabs-text>
 
   <!-- -------------------------------recomended block ------------------- -->
-
-  <div class="wrapper__similar-items"></div>
+  <similar-items class="mt-96" />
 </template>
 
 <script setup>
+import { ref, computed } from "vue";
+
 import { useItemStor } from "@/stores/fakeData";
 import { useRoute } from "vue-router";
-import AboutProduct from "./components/AboutProduct.vue";
 
+import AboutProduct from "./components/AboutProduct.vue";
 import TheTabs from "@/components/TheTabs.vue";
 import UiTabsText from "@/components/Tab/UiTabsText.vue";
 
-import { ref, computed } from "vue";
+import SimilarItems from "./components/SimilarItems.vue";
 
-const store = useItemStor();
+const { tabs, itemArr } = useItemStor();
 const route = useRoute();
+const currentRoute = route.params.id;
 
-const tabs = store.tabs;
+const currentTabsItem = itemArr[currentRoute]; //-data about the current product array of objects -
 
-const tabsCounter = computed(() => {
+const selectedTab = ref("Description"); // -tab selected by default -
+
+const calculatesTheNumberOfReviews = computed(() => {
   return tabs.map((el) => {
     if (el.name === "Reviews") {
-      return { ...el, label: `Reviews (${reviews.length})` };
+      return {
+        ...el,
+        label: `Reviews (${itemArr[currentRoute].reviews.length})`,
+      };
     } else {
       return el;
     }
   });
-});
+}); // - calculates the number of reviews --
 
 const productCart = computed(() => {
-  const indexSrc = store.itemArr[route.params.id];
+  const indexSrc = itemArr[currentRoute];
   return indexSrc;
-});
-
-const reviews = store.reviews;
-
-const selectedTab = ref("Description");
+}); //calculate the dynamic path to the image of the current route--
 
 function changeTab(tabName) {
   return (selectedTab.value = tabName);
-}
+} // --change the current tab --
 </script>
 
 <style lang="scss" scoped>

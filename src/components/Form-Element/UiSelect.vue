@@ -1,6 +1,7 @@
 <template>
   <div>
     <ui-arrow-bottom-icon class="arrow"></ui-arrow-bottom-icon>
+
     <select>
       <slot />
     </select>
@@ -19,6 +20,7 @@ div {
   position: absolute;
   top: 22px;
   right: 22px;
+  z-index: -1;
 }
 select {
   padding: 15px 22px 16px 12px;

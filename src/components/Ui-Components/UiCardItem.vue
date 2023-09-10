@@ -2,12 +2,13 @@
   <div class="card">
     <img :src="path" alt="" />
 
-    <ui-title-f-z20-f-w400 class="black mt-24">{{
-      props.title
-    }}</ui-title-f-z20-f-w400>
-    <ui-title-f-z20-f-w400 class="yellow mt-16">{{
-      props.subtitle
-    }}</ui-title-f-z20-f-w400>
+    <ui-title-f-z20-f-w400 class="black mt-24"
+      >{{ props.title }}
+    </ui-title-f-z20-f-w400>
+
+    <ui-title-f-z20-f-w400 class="yellow mt-16"
+      >{{ props.subtitle }}
+    </ui-title-f-z20-f-w400>
   </div>
 </template>
 

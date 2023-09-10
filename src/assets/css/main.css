@@ -12,6 +12,14 @@
 }
 
 /* -------margin-top------- */
+.mt-5 {
+  margin-top: 5px;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
 .mt-10 {
   margin-top: 10px;
 }
@@ -35,6 +43,9 @@
 }
 .mt-59 {
   margin-top: 59px;
+}
+.mt-66 {
+  margin-top: 66px;
 }
 .mt-70 {
   margin-top: 70px;
@@ -65,6 +76,9 @@
 .ml-64 {
   margin-left: 64px;
 }
+.ml-88 {
+  margin-left: 88px;
+}
 .ml-96 {
   margin-left: 96px;
 }
@@ -81,6 +95,10 @@
 }
 .mr-39 {
   margin-right: 39px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
 }
 
 /* ----------center-text--------- */

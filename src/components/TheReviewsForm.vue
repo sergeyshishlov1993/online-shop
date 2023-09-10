@@ -76,6 +76,8 @@
 <script setup>
 import { ref } from "vue";
 import { useItemStor } from "@/stores/fakeData";
+import { useRoute } from "vue-router";
+
 import UiForm from "./Form-Element/UiForm.vue";
 import UiInput from "./Form-Element/UiInput.vue";
 import UiCheckBox from "./Form-Element/UiCheckBox.vue";
@@ -89,7 +91,8 @@ import StarCounter from "./Form-Element/StarCounter.vue";
 
 // --------------------stor----------------------------
 
-const stor = useItemStor();
+const store = useItemStor();
+const route = useRoute();
 
 // -------------------------------------------------------
 
@@ -101,8 +104,8 @@ const checkBoxValue = ref();
 const starsCount = ref(5);
 const currentRate = ref(0);
 const currentDate = ref();
+const currentRoute = route.params.id;
 
-// -------------------current-date-----------------
 function getCurrentDate() {
   const dateOptipn = {
     day: "numeric",
@@ -111,7 +114,7 @@ function getCurrentDate() {
   };
 
   return (currentDate.value = new Intl.DateTimeFormat("en-Uk", dateOptipn));
-}
+} // - current-date -
 
 function getInputValue(event, id) {
   // -----------add-input-review -value-----------
@@ -136,15 +139,14 @@ function getCheckBoxValue(event) {
   checkBoxValue.value = event.target.checked;
 }
 
-// <!-- ---------------get the user's star rating------------------- -->
 function countLikeStar(emitParam) {
   currentRate.value = emitParam;
-}
+} // <!-get the user's star rating -->
 
 function sendReviews() {
   // -----------------------push-data---------------------
 
-  stor.reviews.push({
+  store.itemArr[currentRoute].reviews.push({
     namePersone: nameInputValue.value,
     date: getCurrentDate().format(date),
     stars: 5,
